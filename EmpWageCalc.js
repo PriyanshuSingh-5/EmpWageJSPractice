@@ -18,7 +18,7 @@ const PART_TIME_HOURS =4;
 const FULL_TIME_HOURS = 8;
 const WAGE_PER_HOUR = 20;
 let empHours = 0;
-switch(empCheck)
+switch(empCheck) //Calculate wage 
 {
     case IS_PART_TIME:
     console.log("Employee is working part time");
