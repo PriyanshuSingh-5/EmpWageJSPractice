@@ -71,3 +71,18 @@ for(let day =0; day<NUM_OF_WORKING_DAYS; day++)
 }
 empWage = WAGE_PER_HOUR*empHours;
 console.log("Total working hours in mmonth: "+empHours+" Total monthly employee wage : " + empWage);
+
+ //UC5 Calculating Wages til a condition of total working hours of 160 or max days of 20 is reached for a month.
+ console.log("UC5 Calculating monthly wage given condition")
+ const MAX_HOURS_IN_MONTHS=160;
+ const MAX_NUMBER_OF_DAYS=20;
+ let totalEmpHours=0;
+ let totalWorkingDays=0;
+ while(totalEmpHours<MAX_HOURS_IN_MONTHS && totalWorkingDays<MAX_NUMBER_OF_DAYS)
+ {
+     totalWorkingDays++;
+     let empCheck = Math.floor(Math.random()*10)%3;
+     totalEmpHours += getWorkingHrs(empCheck);
+ }
+ let totalEmpWage = WAGE_PER_HOUR*totalEmpHours;
+ console.log("Total working days  : "+totalWorkingDays+"\nTotal working hours : "+totalEmpHours+" \nTotal employee wage : " + totalEmpWage);
