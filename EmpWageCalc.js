@@ -34,7 +34,7 @@ switch(empCheck) //Calculate wage
 }
 let empWage = empHours*WAGE_PER_HOUR;
 console.log("Employee wage: " + empWage);
-
+{
 //UC3 Refactor the Code to write a function to get work hours.
 console.log("UC3 Refactor the Code to write a function to get work hours");
 const IS_PART_TIME = 1;
@@ -59,7 +59,8 @@ function getWorkingHrs(empCheck)
 
 let empWage = WAGE_PER_HOUR*getWorkingHrs(empCheck);
 console.log("Employee wage: " + empWage+"\n");
-
+}
+{
 //UC4 Calculating total emp wage for a month assuming 20 working day in a month.
 console.log("UC4 Calculating total emp wage for a month assuming 20 working day in a month")
 const NUM_OF_WORKING_DAYS =20;
@@ -71,18 +72,25 @@ for(let day =0; day<NUM_OF_WORKING_DAYS; day++)
 }
 empWage = WAGE_PER_HOUR*empHours;
 console.log("Total working hours in mmonth: "+empHours+" Total monthly employee wage : " + empWage);
-
+}
  //UC5 Calculating Wages til a condition of total working hours of 160 or max days of 20 is reached for a month.
  console.log("UC5 Calculating monthly wage given condition")
  const MAX_HOURS_IN_MONTHS=160;
  const MAX_NUMBER_OF_DAYS=20;
  let totalEmpHours=0;
  let totalWorkingDays=0;
+ let empDailyWageArray = new Array();
  while(totalEmpHours<MAX_HOURS_IN_MONTHS && totalWorkingDays<MAX_NUMBER_OF_DAYS)
  {
      totalWorkingDays++;
      let empCheck = Math.floor(Math.random()*10)%3;
-     totalEmpHours += getWorkingHrs(empCheck);
+     empHours = getWorkingHrs(empCheck);
+     if(empHours!=0 && totalEmpHours==156)
+     {
+         empHours=PART_TIME_HOURS;
+     }
+     totalEmpHours += empHours;
+      //UC 6 refactor
+      empDailyWageArray.push(empHours*WAGE_PER_HOUR);
  }
- let totalEmpWage = WAGE_PER_HOUR*totalEmpHours;
- console.log("Total working days  : "+totalWorkingDays+"\nTotal working hours : "+totalEmpHours+" \nTotal employee wage : " + totalEmpWage);
+
